@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'logic/increment_bloc.dart';
+import 'logic/bloc_base.dart';
 import 'ui/counter_page.dart';
 
 void main() => runApp(MyApp());
@@ -11,7 +13,10 @@ class MyApp extends StatelessWidget {
       title: 'Streams',
       theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
-      home: CounterPage(),
+      home: BlocProvider<IncrementBloc>(
+        bloc: IncrementBloc(),
+        child: CounterPage(),
+      ),
     );
   }
 }
